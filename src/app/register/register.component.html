@@ -1,26 +1,27 @@
-<center><h2>Registration</h2></center>
+<h2>Registration</h2>
+    <br>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="txt_name" placeholder="Name" required>
+      
+        <label for="surname">Surname</label>
+        <input id="surname" type="text" formControlName="txt_surname" placeholder="Surname" required>
 
-<center> <form class="form" action ="" method="POST">
-                
-    <p>Username</p>
-    <p><input type="text" name="txt_username" placeholder="Username" required></p>
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="txt_email" placeholder="Email" required>
 
-    <p>Surname</p>
-    <p><input type="text" name="txt_surname" placeholder="Surname" required></p>
+        <label for="stuNumber">Student Number</label>
+        <input id="stuNumber" type="number" formControlName="txt_stuNumber" placeholder="Student Number" required>
 
-    <p>Email</p>
-    <p><input type="email" name="txt_email" placeholder="Email" required></p>
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="txt_password" placeholder="Password" required>
 
-    <p>Student Number</p>
-    <p><input type="number" name="txt_stuNumber" placeholder="Student Number" required></p>
-
-    <p>Password</p>
-    <p><input type="password" name="txt_password" placeholder="Password" required></p>
-
-    <p>Confirm Password</p>
-    <p><input type="password" name="txt_confirm" placeholder="Confirm Password" required></p>
-
-    <p><br><br><input id="btn" type="submit" name="btn_submit" value="Submit"> <input id="btn" type="reset" name="btn_reset" value="reset"></p>
-
-
-</form></center>
+        <label for="confirm">Confirm Password</label>
+        <input id="confirm" type="password" formControlName="txt_confirm" placeholder="Confirm Password" required>
+    
+        <button type="submit" [disabled]="!registerForm.valid">register</button>
+        <br><br>
+        <a target="login" routerLink="/login" routerLinkActive="active">Already have an Acc? Login here</a>
+        
+      </form>
