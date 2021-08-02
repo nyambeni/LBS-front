@@ -2,13 +2,13 @@
 <br>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    <label for="username">Username</label>
+    <label for="username">Username</label><br>
     <input id="username" type="text" formControlName="username" placeholder="Username" required>
   
-    <label for="password">Password</label>
+    <br><br><label for="password">Password</label><br>
     <input id="password" type="password" formControlName="password" placeholder="Password" required>
 
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+    <br><br><button type="submit" [disabled]="!loginForm.valid">Submit</button>
     <br><br>
     <a target="target" routerLink="/register" routerLinkActive="active">Register</a>&nbsp;&nbsp;
     <a target="target" routerLink="/forgot_password" routerLinkActive="active">Forgot password</a>

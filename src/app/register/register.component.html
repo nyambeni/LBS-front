@@ -2,25 +2,25 @@
     <br>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     
-        <label for="name">Name</label>
+        <label for="name">Name</label><br>
         <input id="name" type="text" formControlName="txt_name" placeholder="Name" required>
       
-        <label for="surname">Surname</label>
+        <br><br><label for="surname">Surname</label><br>
         <input id="surname" type="text" formControlName="txt_surname" placeholder="Surname" required>
 
-        <label for="email">Email</label>
+        <br><br><label for="email">Email</label><br>
         <input id="email" type="email" formControlName="txt_email" placeholder="Email" required>
 
-        <label for="stuNumber">Student Number</label>
+        <br><br><label for="stuNumber">Student Number</label><br>
         <input id="stuNumber" type="number" formControlName="txt_stuNumber" placeholder="Student Number" required>
 
-        <label for="password">Password</label>
+        <br><br><label for="password">Password</label><br>
         <input id="password" type="password" formControlName="txt_password" placeholder="Password" required>
 
-        <label for="confirm">Confirm Password</label>
+        <br><br><label for="confirm">Confirm Password</label><br>
         <input id="confirm" type="password" formControlName="txt_confirm" placeholder="Confirm Password" required>
     
-        <button type="submit" [disabled]="!registerForm.valid">register</button>
+        <br><br><button type="submit" [disabled]="!registerForm.valid">register</button>
         <br><br>
         <a target="login" routerLink="/login" routerLinkActive="active">Already have an Acc? Login here</a>
         
