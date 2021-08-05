@@ -1,6 +1,6 @@
-<h2>Login</h2>
+<h2 style="text-align:center">Login</h2>
 <br>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form style="text-align: center;" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
     <label for="username">Username</label><br>
     <input id="username" type="text" formControlName="username" placeholder="Username" required>
@@ -11,6 +11,6 @@
     <br><br><button type="submit" [disabled]="!loginForm.valid">Submit</button>
     <br><br>
     <a target="target" routerLink="/register" routerLinkActive="active">Register</a>&nbsp;&nbsp;
-    <a target="target" routerLink="/forgot_password" routerLinkActive="active">Forgot password</a>
+    <a target="target" routerLink="/forgot-password" routerLinkActive="active">Forgot password</a>
   </form>
 

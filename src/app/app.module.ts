@@ -8,17 +8,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 //import service class
 import {IssueService} from './issue.service';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-import { BrowserModule } from  '@angular/platform-browser';
-import { NgModule } from  '@angular/core';
-import { AppComponent } from  './app.component';
-import { NgOtpInputModule } from  'ng-otp-input';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
