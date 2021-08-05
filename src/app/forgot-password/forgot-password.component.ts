@@ -12,7 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private router: Router) { }
   resetpassForm = new FormGroup({
-    txt_email: new FormControl(''),
+    email: new FormControl(''),
   });
 
   ngOnInit(): void {

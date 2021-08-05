@@ -1,33 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
-import { IssueService } from '../issue.service';
+import { Component } from '@angular/core';
+//import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
+//import { IssueService } from '../issue.service';
+//import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'; 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor(private issueService: IssueService) { }
-  registerForm = new FormGroup({
-    txt_name: new FormControl(''),
-    txt_surname: new FormControl(''),
-    txt_email: new FormControl(''),
-    txt_stuNumber: new FormControl(''),
-    txt_password: new FormControl(''),
-    txt_confirm: new FormControl(''),
-  });
+  constructor(private http:HttpClient) { }
 
-  ngOnInit(): void {
-    this.issueService.getIssues().subscribe((issues) => {
-      console.log(issues);
-    });
-  }
+  
 
-  onSubmit() {
+  onSubmit(data)
+   {
     // TODO: Use EventEmitter with form value
-    console.warn(this.registerForm.value);
+    //console.warn(this.registerForm.value);
+    //this.router.navigate(['/login']);
+    this.http.post('http://localhost:3000/registration',data)
+    .subscribe((result)=>{
+      console.warn("result",result)
+    })
+    console.warn(data);
   }
 
 }

@@ -1,27 +1,19 @@
 <h2 style="text-align:center">Registration</h2>
     <br>
-    <form style="text-align: center;" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     
-        <label for="name">Name</label><br>
-        <input id="name" type="text" formControlName="txt_name" placeholder="Name" required>
-      
-        <br><br><label for="surname">Surname</label><br>
-        <input id="surname" type="text" formControlName="txt_surname" placeholder="Surname" required>
-
-        <br><br><label for="email">Email</label><br>
-        <input id="email" type="email" formControlName="txt_email" placeholder="Email" required>
-
-        <br><br><label for="stuNumber">Student Number</label><br>
-        <input id="stuNumber" type="number" formControlName="txt_stuNumber" placeholder="Student Number" required>
-
-        <br><br><label for="password">Password</label><br>
-        <input id="password" type="password" formControlName="txt_password" placeholder="Password" required>
-
-        <br><br><label for="confirm">Confirm Password</label><br>
-        <input id="confirm" type="password" formControlName="txt_confirm" placeholder="Confirm Password" required>
+       <input type="text" name="name" ngModel placeholder="Name"><br>
+       <input type="text" name="surname" ngModel placeholder="Surname"><br>
+       <input type="text" name="email" ngModel placeholder="Email"><br>
+       <input type="text" name="stuNumber" ngModel placeholder="Student Number"><br>
+       <input type="text" name="password" ngModel placeholder="Password"><br>
+       <input type="text" name="confirm" ngModel placeholder="Confirm Password"><br>
     
-        <br><br><button type="submit" [disabled]="!registerForm.valid">register</button>
+        <br><br><button type="submit">register</button>
         <br><br>
         <a target="login" routerLink="/login" routerLinkActive="active">Already have an Acc? Login here</a>
         
       </form>
+
+
+
