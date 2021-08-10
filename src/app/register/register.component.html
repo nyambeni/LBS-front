@@ -2,12 +2,12 @@
     <br>
     <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     
-       <input type="text" name="name" ngModel placeholder="Name"><br>
-       <input type="text" name="surname" ngModel placeholder="Surname"><br>
-       <input type="text" name="email" ngModel placeholder="Email"><br>
-       <input type="text" name="stuNumber" ngModel placeholder="Student Number"><br>
-       <input type="text" name="password" ngModel placeholder="Password"><br>
-       <input type="text" name="confirm" ngModel placeholder="Confirm Password"><br>
+       <input type="text" name="name" ngModel placeholder="Name" required><br>
+       <input type="text" name="surname" ngModel placeholder="Surname" required><br>
+       <input type="email" name="email" ngModel placeholder="202145368@tut4life.ac.za" required><br>
+       <input type="text" name="stuNumber" ngModel placeholder="Student Number" required><br>
+       <input type="text" name="password" ngModel placeholder="Password" required><br>
+       <input type="text" name="confirm" ngModel placeholder="Confirm Password" required><br>
     
         <br><br><button type="submit">register</button>
         <br><br>
