@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
 
      //sweet Alerts pop up messages
      Swal.fire({
-      title: 'Logged In',
+      title: '',
       text: '',
-      icon: 'success',
+      icon: 'warning',
       showCancelButton: false,
       confirmButtonText: 'Okay',
       cancelButtonText: 'NO'
@@ -33,9 +33,25 @@ export class LoginComponent implements OnInit {
       if (result.isConfirmed) {
 
         //Retrieve Information from the database
-        this.http.post('http://localhost:3000/login',data)
+        this.http.post('http://localhost:3000/login',data, {responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
+            if(result == ' you have sucessfully loged in')
+            {
+              Swal.fire(
+                'Login',
+                'Logged In',
+                'success'
+              )
+            }else{
+
+              Swal.fire(
+                result,
+                '',
+                'warning'
+              )
+            }
+            
         })
         console.warn(data);
         //Navigate to the Home page

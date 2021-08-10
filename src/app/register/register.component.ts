@@ -35,20 +35,31 @@ export class RegisterComponent {
         
 
         //Add the User to the Database
-        this.http.post('http://localhost:3000/registration',data)
+        this.http.post('http://localhost:3000/registration',data, {responseType:'text'})
         .subscribe((result)=>{
             console.warn("result",result)
+            //On submit validation
+            if(result == 'user registered sucessfully')
+            {
+              Swal.fire(
+                'Registered!',
+                'User Added!',
+                'success'
+              )
+              //Navigate to the Login page
+              this.router.navigate(['/login']);
+            }else{
+              Swal.fire(
+                result,
+                '',
+                'warning'
+              )
+            }
+
+            
         })
         console.warn(data);
-
-        Swal.fire(
-          'Registered!',
-          'User Added!',
-          'success'
-        )
-        //Navigate to the Login page
-        this.router.navigate(['/login']);
-      
+        
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
