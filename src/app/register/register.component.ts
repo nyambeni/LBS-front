@@ -42,8 +42,8 @@ export class RegisterComponent {
             if(result == 'user registered sucessfully')
             {
               Swal.fire(
-                'Registered!',
-                'User Added!',
+                result,
+                '',
                 'success'
               )
               //Navigate to the Login page

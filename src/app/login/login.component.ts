@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
               Swal.fire(
                 result,
-                'Incorrect Details!',
+                '',
                 'warning'
               )
             }
