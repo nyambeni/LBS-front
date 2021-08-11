@@ -23,8 +23,8 @@ export class ForgotPasswordComponent implements OnInit {
 
     //sweet Alerts pop up messages
     Swal.fire({
-      title: 'Email',
-      text: 'Send the Password to this Email?',
+      title: 'Send the Password to this Email?',
+      text: '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'YES',
@@ -33,19 +33,31 @@ export class ForgotPasswordComponent implements OnInit {
       if (result.isConfirmed) {
 
         //Add the User to the Database
-        this.http.post('http://localhost:3000/forgotPassword',data)
+        this.http.post('http://localhost:3000/forgotPassword',data,{responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
+            if(result == 'student number does not exist')
+            {
+              Swal.fire(
+                'Done!',
+                result,
+                'warning'
+              )
+            }else{
+              
+              Swal.fire(
+                'Done!',
+                'Your password is '+result,
+                'success'
+              )
+              //Navigate to the Login page
+              this.router.navigate(['/login']);
+            }
+            
         })
         console.warn(data);
 
-        Swal.fire(
-          'Done!',
-          '',
-          'success'
-        )
-        //Navigate to the Login page
-        this.router.navigate(['/login']);
+        
         
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {

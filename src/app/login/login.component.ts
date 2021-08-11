@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
 
      //sweet Alerts pop up messages
      Swal.fire({
-      title: '',
-      text: '',
+      title: 'Login Details',
+      text: 'Save Your Password?',
       icon: 'warning',
-      showCancelButton: false,
-      confirmButtonText: 'Okay',
+      showCancelButton: true,
+      confirmButtonText: 'YES',
       cancelButtonText: 'NO'
     }).then((result) => {
       if (result.isConfirmed) {
@@ -36,26 +36,27 @@ export class LoginComponent implements OnInit {
         this.http.post('http://localhost:3000/login',data, {responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
-            if(result == ' you have sucessfully loged in')
+            if(result == 'you have sucessfully loged in')
             {
               Swal.fire(
-                'Login',
                 'Logged In',
+                '',
                 'success'
               )
+              //Navigate to the Home page
+              this.router.navigate(['']);
             }else{
 
               Swal.fire(
                 result,
-                '',
+                'Incorrect Details!',
                 'warning'
               )
             }
             
         })
         console.warn(data);
-        //Navigate to the Home page
-        this.router.navigate(['']);
+        
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(

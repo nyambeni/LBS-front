@@ -1,9 +1,10 @@
 <h2 style="text-align:center">Login</h2>
 <br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
-    
-    <input type="text" name="Username" ngModel placeholder="Username" required><br>
-    <input type="password" name="Password" ngModel placeholder="Password" required><br>
+    <label for="username">Username</label><br>
+    <input type="text" name="stuNumber" ngModel placeholder="Username" required><br><br>
+    <label for="password">Password</label><br>
+    <input type="password" name="password" ngModel placeholder="Password" required><br>
      <br><br><button type="submit">Login</button>
      <br><br>
      <a target="target" routerLink="/register" routerLinkActive="active">Register</a>&nbsp;&nbsp;

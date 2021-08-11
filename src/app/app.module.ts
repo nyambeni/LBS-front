@@ -9,11 +9,13 @@ import {HttpClientModule} from '@angular/common/http';
 
 //import service class
 import {IssueService} from './issue.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
