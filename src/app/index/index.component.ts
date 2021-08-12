@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit()
+  onClick()
   {
     //navigate to the login page
     this.router.navigate(['/login']);
