@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,19 +10,32 @@ import {HttpClientModule} from '@angular/common/http';
 //import service class
 import {IssueService} from './issue.service';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     HomeComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+      {path: 'forgot-password', component: ForgotPasswordComponent},
+      {path: 'home', component: HomeComponent},
+      {path: 'index', component: IndexComponent},
+      {path: '', redirectTo: '/index', pathMatch: 'full'},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

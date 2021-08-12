@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
                 'success'
               )
               //Navigate to the Home page
-              this.router.navigate(['']);
+              this.router.navigate(['/home']);
             }else{
 
               Swal.fire(
