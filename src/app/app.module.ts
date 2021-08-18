@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { IndexComponent } from './index/index.component';
 import { LabBookingComponent } from './lab-booking/lab-booking.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LabBookingComponent } from './lab-booking/lab-booking.component';
     HomeComponent,
     IndexComponent,
     LabBookingComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { LabBookingComponent } from './lab-booking/lab-booking.component';
       {path: 'home', component: HomeComponent},
       {path: 'index', component: IndexComponent},
       {path: 'lab-booking', component: LabBookingComponent},
+      {path: 'profile', component: ProfileComponent},
       {path: '', redirectTo: '/index', pathMatch: 'full'},
     ]),
   ],

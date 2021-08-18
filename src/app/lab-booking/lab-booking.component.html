@@ -1,5 +1,12 @@
-<h2>Lab booking</h2>
-<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+<header>
+  <h2>Lab booking</h2>
+</header>
+<nav>
+  <a target="target" routerLink="/home" routerLinkActive="active">Home</a>&nbsp;&nbsp;|
+  <a target="target" routerLink="/profile" routerLinkActive="active">Edit Profile</a>&nbsp;&nbsp;|
+  <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
+</nav>
+<form formControlName="labBooking" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     <label for="name">Name</label><br>
    <input type="text" name="name" ngModel placeholder="Name" required><br><br>
    <label for="labName">lab Name</label><br>

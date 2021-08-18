@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
 import { LabBookingComponent } from './lab-booking/lab-booking.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'home', component: HomeComponent},
   {path: 'index', component: IndexComponent},
-  {path: 'lab-booking', component: LabBookingComponent}
+  {path: 'lab-booking', component: LabBookingComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, RegisterComponent,
-   ForgotPasswordComponent, HomeComponent, IndexComponent, LabBookingComponent] 
+   ForgotPasswordComponent, HomeComponent, IndexComponent, LabBookingComponent, ProfileComponent] 

@@ -20,7 +20,7 @@ export class AppComponent {
     //on submit button
   onSubmit()
   {
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
   }
 }
 

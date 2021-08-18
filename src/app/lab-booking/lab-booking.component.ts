@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
+import { IssueService } from '../issue.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; 
 import Swal from 'sweetalert2';
@@ -11,7 +13,7 @@ import Swal from 'sweetalert2';
 export class LabBookingComponent implements OnInit {
 
   constructor(private http:HttpClient,private router: Router) { }
-
+  FormGroup
   ngOnInit(): void {
   }
 
@@ -51,7 +53,7 @@ export class LabBookingComponent implements OnInit {
             
         })
         console.warn(data);
-        
+        //console.log(this.labBooking.value);
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
