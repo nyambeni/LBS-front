@@ -6,9 +6,17 @@
   <a target="target" routerLink="/profile" routerLinkActive="active">Edit Profile</a>&nbsp;&nbsp;|
   <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
 </nav>
-<form formControlName="labBooking" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+<!--
+<form [formGroup]="labBooking" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     <label for="name">Name</label><br>
-   <input type="text" name="name" ngModel placeholder="Name" required><br><br>
+   <input type="text" formControlName="name" ngModel placeholder="Name" required><br><br>
+
+   <select formControlName="lab">
+    <option [ngValue]="null" disabled>Select Lab</option>
+    <option *ngFor="let lab of labs" [ngValue]="lab.id">{{lab.name}}</option>
+  </select>
+
+
    <label for="labName">lab Name</label><br>
    <select name="labs" id="lab"><br>
         <option value="10-120">Lab 10-120</option>
@@ -40,4 +48,12 @@
     <button type="button" (click)="onClickUpdate()">Update booking</button>&nbsp;&nbsp;
     <button type="button" (click)="onClickCancel()">Cancel Booking</button>
   </div>
+
+-->
+
+<h1>Drop Down</h1>
+<select [(ngModel)]="selectedLevel" (change)="selected()">
+    <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+</select>
+
   

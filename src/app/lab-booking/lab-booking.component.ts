@@ -4,6 +4,8 @@ import { IssueService } from '../issue.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; 
 import Swal from 'sweetalert2';
+import { GroupedObservable } from 'rxjs';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-lab-booking',
@@ -12,9 +14,41 @@ import Swal from 'sweetalert2';
 })
 export class LabBookingComponent implements OnInit {
 
-  constructor(private http:HttpClient,private router: Router) { }
-  FormGroup
+  constructor(private http:HttpClient, private router: Router, private fb:FormBuilder) { }
+  //group the form
+  labBooking = new FormGroup({
+    lab: new FormControl(''),
+    name: new FormControl(''),
+  });
+  /*array for frop down list
+  labs = [
+    {id: 1, name: "Lab 10-120"},
+    {id: 2, name: "Lab 10-138"},
+    {id: 3, name: "Lab 10-132"},
+    {id: 4, name: "Lab 10-128"}
+  ];*/
+
+
+  selectedLevel;
+  data:Array<Object> = [
+      {id: 0, name: "fds"},
+      {id: 1, name: "sfd"}
+  ];
+
+  selected(){
+    console.log(this.selectedLevel.name)
+  }
+
+
+
+
+
+
   ngOnInit(): void {
+    //
+    this.labBooking = this.fb.group({
+      labBooking: [null]
+    });
   }
 
   onSubmit(data)
@@ -52,8 +86,10 @@ export class LabBookingComponent implements OnInit {
             }
             
         })
+        //show the results on the console
         console.warn(data);
-        //console.log(this.labBooking.value);
+      
+        
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
