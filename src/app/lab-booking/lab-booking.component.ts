@@ -7,48 +7,44 @@ import Swal from 'sweetalert2';
 import { GroupedObservable } from 'rxjs';
 import { __values } from 'tslib';
 
+
+export class Labs {
+  constructor(
+    public Lab_Name: string,
+    public Lab_Slot: string,
+  ) {
+  }
+}
+
 @Component({
   selector: 'app-lab-booking',
   templateUrl: './lab-booking.component.html',
   styleUrls: ['./lab-booking.component.css']
 })
 export class LabBookingComponent implements OnInit {
-
+  
   constructor(private http:HttpClient, private router: Router, private fb:FormBuilder) { }
-  //group the form
-  labBooking = new FormGroup({
-    lab: new FormControl(''),
-    name: new FormControl(''),
-  });
-  /*array for frop down list
-  labs = [
-    {id: 1, name: "Lab 10-120"},
-    {id: 2, name: "Lab 10-138"},
-    {id: 3, name: "Lab 10-132"},
-    {id: 4, name: "Lab 10-128"}
-  ];*/
-
-
-  selectedLevel;
-  data:Array<Object> = [
-      {id: 0, name: "fds"},
-      {id: 1, name: "sfd"}
-  ];
-
-  selected(){
-    console.log(this.selectedLevel.name)
+  lab: Labs[];
+ 
+  ngOnInit(): void {
+    this.getlab();
   }
 
 
-
-
-
-
-  ngOnInit(): void {
-    //
-    this.labBooking = this.fb.group({
-      labBooking: [null]
-    });
+  //get function that receive the results from the database
+  getlab(){
+    this.http.get<any>('http://localhost:3000/availableLabs').subscribe(
+      response => {
+        //console.log(response);
+        
+        this.lab = response;
+        //const data = response.json();
+        const {Lab_Name, Lab_Slot} = response;
+        console.log(response);
+        //document.getElementById('name').textContent = Lab_Name;
+       // document.getElementById('slot').textContent = Lab_Slot;
+      }
+    );
   }
 
   onSubmit(data)
@@ -64,7 +60,7 @@ export class LabBookingComponent implements OnInit {
       if (result.isConfirmed) {
 
         //Retrieve Information from the database
-        this.http.post('http://localhost:3000/lab-booking',data, {responseType: 'text'})
+        this.http.post('http://localhost:3000/availableLabs',data, {responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
             if(result == '') //check backend message if successful

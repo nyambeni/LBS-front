@@ -6,16 +6,10 @@
   <a target="target" routerLink="/profile" routerLinkActive="active">Edit Profile</a>&nbsp;&nbsp;|
   <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
 </nav>
-<!--
-<form [formGroup]="labBooking" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+
+<!--<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     <label for="name">Name</label><br>
-   <input type="text" formControlName="name" ngModel placeholder="Name" required><br><br>
-
-   <select formControlName="lab">
-    <option [ngValue]="null" disabled>Select Lab</option>
-    <option *ngFor="let lab of labs" [ngValue]="lab.id">{{lab.name}}</option>
-  </select>
-
+   <input type="text" ngModel placeholder="Name" required><br><br>
 
    <label for="labName">lab Name</label><br>
    <select name="labs" id="lab"><br>
@@ -49,11 +43,35 @@
     <button type="button" (click)="onClickCancel()">Cancel Booking</button>
   </div>
 
--->
 
-<h1>Drop Down</h1>
-<select [(ngModel)]="selectedLevel" (change)="selected()">
+
+  <h1>Drop Down</h1>
+  <select [(ngModel)]="selectedLevel" (change)="selected()">
     <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
-</select>
+  </select>
+-->
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      
+      <th>Lab Name</th>
+      <th>Lab Slot</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let labs of lab">
+      
+      <td><span>{{labs.Lab_Name}}</span></td>
+      <td><span>{{labs.Lab_Slot}}</span></td>
+      
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-  
+
+
+
+
+
