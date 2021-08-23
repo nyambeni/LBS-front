@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { GroupedObservable } from 'rxjs';
 import { __values } from 'tslib';
 
-
+//storing info receiced from the console
 export class Labs {
   constructor(
     public Lab_Name: string,
@@ -22,11 +22,19 @@ export class Labs {
   styleUrls: ['./lab-booking.component.css']
 })
 export class LabBookingComponent implements OnInit {
-  
+  //constructor
   constructor(private http:HttpClient, private router: Router, private fb:FormBuilder) { }
+  //lab array that store the labs from the database
   lab: Labs[];
  
+
+  //On initialize function
   ngOnInit(): void {
+    this.getlab();
+  }
+
+  //Update Function
+  ngOnUpdate(): void {
     this.getlab();
   }
 
@@ -38,15 +46,23 @@ export class LabBookingComponent implements OnInit {
         //console.log(response);
         
         this.lab = response;
-        //const data = response.json();
-        const {Lab_Name, Lab_Slot} = response;
+        //const {Lab_Name, Lab_Slot} = response;
         console.log(response);
-        //document.getElementById('name').textContent = Lab_Name;
-       // document.getElementById('slot').textContent = Lab_Slot;
       }
     );
   }
 
+
+
+  //get the student number from the database
+  getStuNumber(){
+    this.http.post('http://localhost:3000/login', {responseType: 'text'})
+        .subscribe((result)=>{
+            console.warn("result",result);
+        });
+  }
+
+  //On submit button
   onSubmit(data)
   {
     Swal.fire({

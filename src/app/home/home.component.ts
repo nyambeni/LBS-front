@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Details, LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
+  stud_Name = Details[1]
+  stud_Surname = Details[2]
 
 }

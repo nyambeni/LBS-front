@@ -7,16 +7,14 @@
   <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
 </nav>
 
-<!--<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     <label for="name">Name</label><br>
-   <input type="text" ngModel placeholder="Name" required><br><br>
+   <input type="text" name="name" ngModel placeholder="Name" required><br><br>
 
    <label for="labName">lab Name</label><br>
-   <select name="labs" id="lab"><br>
-        <option value="10-120">Lab 10-120</option>
-        <option value="10-138">Lab 10-138</option>
-        <option value="10-132">Lab 10-132</option>
-        <option value="10-128">Lab 10-128</option>
+   <select *ngFor="let labs of lab"><br>
+        <option value="{{labs.Lab_Name}}"></option>
+        
   </select><br><br>
    <label for="purpose">Purpose of study</label><br>
    <select name="purpose" id="purpose"><br>
@@ -25,14 +23,8 @@
        <option value="assignment">Assignment</option>
    </select><br><br>
    <label for="slot">Choose Slot</label><br>
-   <select name="slot" id="slot"><br>
-        <option value="slotA">Slot A 08h00 - 10h00</option>
-        <option value="slotB">Slot B 10h00 - 12h00</option>
-        <option value="slotC">Slot C 12h00 - 14h00</option>
-        <option value="slotD">Slot D 14h00 - 16h00</option>
-        <option value="slotE">Slot E 16h00 - 18h00</option>
-        <option value="slotF">Slot F 18h00 - 20h00</option>
-        <option value="slotG">Slot G 20h00 - 22h00</option>
+   <select *ngFor="let labs of lab"><br>
+        <option value="slotA">{{labs.Lab_Slot}}</option>
     </select><br>
 
     <br><br><button type="submit">Book</button>
@@ -44,13 +36,7 @@
   </div>
 
 
-
-  <h1>Drop Down</h1>
-  <select [(ngModel)]="selectedLevel" (change)="selected()">
-    <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
-  </select>
--->
-<div class="container">
+<!--<div class="container">
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -70,7 +56,7 @@
   </table>
 </div>
 
-
+-->
 
 
 
