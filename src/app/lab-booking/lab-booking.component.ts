@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { GroupedObservable } from 'rxjs';
 import { __values } from 'tslib';
+//import * as internal from 'stream';
 
 //storing info receiced from the console
 export class Labs {
   constructor(
+    public Lab_Num: string,
     public Lab_Name: string,
     public Lab_Slot: string,
   ) {
@@ -56,10 +58,15 @@ export class LabBookingComponent implements OnInit {
 
   //get the student number from the database
   getStuNumber(){
-    this.http.post('http://localhost:3000/login', {responseType: 'text'})
-        .subscribe((result)=>{
-            console.warn("result",result);
-        });
+    this.http.get<any>('http://localhost:3000/login').subscribe(
+      response => {
+        //console.log(response);
+        
+        this.lab = response;
+        //const {Lab_Name, Lab_Slot} = response;
+        console.log(response);
+      }
+    );
   }
 
   //On submit button
@@ -76,7 +83,7 @@ export class LabBookingComponent implements OnInit {
       if (result.isConfirmed) {
 
         //Retrieve Information from the database
-        this.http.post('http://localhost:3000/availableLabs',data, {responseType: 'text'})
+        this.http.post('http://localhost:3000/labbooking',data, {responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
             if(result == '') //check backend message if successful

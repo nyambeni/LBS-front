@@ -7,25 +7,53 @@
   <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
 </nav>
 
+<!--Table to display all the available labs-->
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Lab ID</th>&nbsp;
+      <th>Lab Name</th>&nbsp;
+      <th>Lab Slot</th>&nbsp;
+      <th>Status</th>&nbsp;
+      <th>Description</th>&nbsp;
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let labs of lab">
+      <td><span>1</span></td>&nbsp;
+      <td><span>{{labs.Lab_Name}}</span></td>&nbsp;
+      <td><span>{{labs.Lab_Slot}}</span></td>&nbsp;
+      <td><span>Available</span></td>&nbsp;
+      <td><span></span></td>&nbsp;
+      
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br><br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
-    <label for="name">Name</label><br>
-   <input type="text" name="name" ngModel placeholder="Name" required><br><br>
-
-   <label for="labName">lab Name</label><br>
-   <select *ngFor="let labs of lab"><br>
-        <option value="{{labs.Lab_Name}}"></option>
-        
-  </select><br><br>
-   <label for="purpose">Purpose of study</label><br>
-   <select name="purpose" id="purpose"><br>
+    <label for="labName">Lab Name</label><br>
+   <input type="text" name="labName" ngModel placeholder="Lab Name" required><br><br> 
+   <label for="slot">Choose Slot</label><br>
+   <input type="text" name="slot" ngModel placeholder="Slot" required><br><br>
+   <!--   
+   <label for="labs">Available Labs</label><br>
+   <select name="lab">
+    <option *ngFor="let labs of lab" value="labs">{{labs.Lab_Name}}</option>
+   </select><br><br>
+   <label for="labs">Slots</label><br>
+   <select name="slot">
+    <option *ngFor="let labs of lab" value="slot">{{labs.Lab_Slot}}</option>
+   </select>
+   
+     <label for="purpose">Purpose of study</label><br>
+     <select name="purpose" id="purpose"><br>
        <option value="study">Study</option>
        <option value="attend">Attend</option>
        <option value="assignment">Assignment</option>
-   </select><br><br>
-   <label for="slot">Choose Slot</label><br>
-   <select *ngFor="let labs of lab"><br>
-        <option value="slotA">{{labs.Lab_Slot}}</option>
-    </select><br>
+   </select>-->
+   
 
     <br><br><button type="submit">Book</button>
     <br><br>
@@ -36,27 +64,7 @@
   </div>
 
 
-<!--<div class="container">
-  <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      
-      <th>Lab Name</th>
-      <th>Lab Slot</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let labs of lab">
-      
-      <td><span>{{labs.Lab_Name}}</span></td>
-      <td><span>{{labs.Lab_Slot}}</span></td>
-      
-    </tr>
-    </tbody>
-  </table>
-</div>
 
--->
 
 
 

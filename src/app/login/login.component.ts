@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         this.http.post('http://localhost:3000/login',data, {responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
-            if(result.length > 0)
+            if(result == 'success')
             {
               Swal.fire(
                 'Successfully Logged In!',
@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
                 'success'
               )
               //Navigate to the Home page
-              //this.router.navigate(['/home']);
+              this.router.navigate(['/home']);
             }else{
 
               Swal.fire(
