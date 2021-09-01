@@ -1,8 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Details, LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../login/login.component';
 import { Router, NavigationExtras} from '@angular/router';
 import { HttpClient } from '@angular/common/http'; 
 import Swal from 'sweetalert2';
+
+//storing info receiced from the console
+export class Details {
+  constructor(
+    public stud_no: string,
+    public stu_name: string,
+    public stud_surname: string,
+  ) {
+  }
+}
+
+//
+export class Lecturers {
+  constructor(
+    public lec_id: string,
+    public lec_name: string,
+    public lec_surname: string,
+  ) {
+  }
+}
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,17 +34,36 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
   constructor(private http:HttpClient,private router: Router) { }
+  //variable to store the title
+  tittle: string;
+  //delete: string;
 
-  ngOnInit(): void {
+
+  //student detail array
+  student: Details[];
+  //Lecturer array
+  lecture: Lecturers[];
+
+  ngOnInit(): void { 
     
+    this.tittle = localStorage.getItem("token");
+    this.getDetails();
+    this.getLecturers();
   }
 
-  stud_Name = Details[1]
-  stud_Surname = Details[2]
-
+  //get function that receive the student results from the database
+  getDetails(){
+    this.student = JSON.parse(this.tittle);
+  }
+  //get function that receive the lecturer results from the database
+  getLecturers(){
+    this.lecture = JSON.parse(this.tittle);
+  }
 
   onClick()
   {
-    this.router.navigate(['/home']);
+    
+    localStorage.removeItem("token");
+    this.router.navigate(['/index']);
   }
 }

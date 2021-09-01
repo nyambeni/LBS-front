@@ -16,6 +16,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { IndexComponent } from './index/index.component';
 import { LabBookingComponent } from './lab-booking/lab-booking.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
     IndexComponent,
     LabBookingComponent,
     ProfileComponent,
+    BookingDetailsComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import { ProfileComponent } from './profile/profile.component';
       {path: 'index', component: IndexComponent},
       {path: 'lab-booking', component: LabBookingComponent},
       {path: 'profile', component: ProfileComponent},
+      {path: 'booking-details', component: BookingDetailsComponent},
       {path: '', redirectTo: '/index', pathMatch: 'full'},
     ]),
   ],

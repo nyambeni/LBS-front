@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 //import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
 //import { IssueService } from '../issue.service';
 import { Router } from '@angular/router';
@@ -14,7 +14,9 @@ export class RegisterComponent {
 
   constructor(private http:HttpClient, private router: Router) { }
 
-  
+  @Input()
+  //variable to store the selected radio button
+  answer = '';
 
   onSubmit(data)
    {
@@ -33,10 +35,11 @@ export class RegisterComponent {
         // TODO: Use EventEmitter with form value
         //console.warn(this.ngForm.value);
         
-
-        //Add the User to the Database
-        this.http.post('http://localhost:3000/registration',data, {responseType:'text'})
-        .subscribe((result)=>{
+        if(this.answer == 'student')
+        {
+              //Add the User to the Database
+            this.http.post('http://localhost:3000/registration',data, {responseType:'text'})
+            .subscribe((result)=>{
             console.warn("result",result)
             //On submit validation
             if(result == 'user registered sucessfully')
@@ -57,8 +60,37 @@ export class RegisterComponent {
             }
 
             
-        })
-        console.warn(data);
+          })
+          console.warn(data);
+        }
+        if(this.answer == 'lecturer')
+        {
+              //Add the User to the Database
+              this.http.post('http://localhost:3000/Lec_registration',data, {responseType:'text'})
+              .subscribe((result)=>{
+              console.warn("result",result)
+              //On submit validation
+              if(result == 'user registered sucessfully')
+              {
+                Swal.fire(
+                  result,
+                  '',
+                  'success'
+                )
+                //Navigate to the Login page
+                this.router.navigate(['/login']);
+              }else{
+                Swal.fire(
+                  result,
+                  '',
+                  'warning'
+                )
+              }
+  
+              
+            })
+            console.warn(data);
+        }
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(

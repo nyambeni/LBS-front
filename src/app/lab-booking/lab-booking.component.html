@@ -33,35 +33,42 @@
 </div>
 <br><br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
-    <label for="labName">Lab Name</label><br>
-   <input type="text" name="labName" ngModel placeholder="Lab Name" required><br><br> 
-   <label for="slot">Choose Slot</label><br>
-   <input type="text" name="slot" ngModel placeholder="Slot" required><br><br>
-   <!--   
-   <label for="labs">Available Labs</label><br>
-   <select name="lab">
-    <option *ngFor="let labs of lab" value="labs">{{labs.Lab_Name}}</option>
-   </select><br><br>
-   <label for="labs">Slots</label><br>
-   <select name="slot">
-    <option *ngFor="let labs of lab" value="slot">{{labs.Lab_Slot}}</option>
-   </select>
    
-     <label for="purpose">Purpose of study</label><br>
-     <select name="purpose" id="purpose"><br>
-       <option value="study">Study</option>
-       <option value="attend">Attend</option>
-       <option value="assignment">Assignment</option>
-   </select>-->
-   
+  <label for="name" >Student Number </label><br>
+  <input *ngFor="let students of student" type="text" name="stuNumber" ngModel ="{{students.stud_no}}"  required><br><br>
+
+  
+  <div class = "container">
+  <label class="form-select">Choose Slot</label><br>
+  
+  <select   [ngModelOptions]="{standalone: true}" [(ngModel)] = "selected" >
+    <option ><p></option>>
+   <option *ngFor="let labs of lab"  name="labAndSlot"  [(ngModel)] = "selected"><p > {{labs.Lab_Name}} For Slot {{labs.Lab_Slot}}</p></option> 
+  </select><br>
+ 
+ </div>
 
     <br><br><button type="submit">Book</button>
     <br><br>
   </form>
-  <div style="text-align: center;">
-    <button type="button" (click)="onClickUpdate()">Update booking</button>&nbsp;&nbsp;
-    <button type="button" (click)="onClickCancel()">Cancel Booking</button>
-  </div>
+  <br>
+
+  <div id ="footer">
+    <footer>
+      <a class="contact" href="">contact Us</a><br><br>
+      <a class="about" href="">About</a>
+            <div class="footer-widget social-widget">
+                <h4>Follow Us</h4>
+                <ul class="social-icons">
+                    <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
+                    <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
+                    <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
+                </ul>
+            </div>
+             <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/LBS-front/src/assets/images/SACoronavirus.png"></a>
+    </footer>
+  </div> 
+  
 
 
 

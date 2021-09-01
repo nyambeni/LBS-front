@@ -1,0 +1,49 @@
+<header>
+    <h2>Booking Status</h2>
+  </header>
+  <nav>
+    <a target="target" routerLink="/home" routerLinkActive="active">Home</a>&nbsp;&nbsp;|
+    <a target="target" routerLink="/lab-booking" routerLinkActive="active">Lab Booking</a>&nbsp;&nbsp;|
+    <a target="target" routerLink="/profile" routerLinkActive="active">Edit Profile</a>&nbsp;&nbsp;|
+    <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
+  </nav>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Booking ID</th>&nbsp;
+      <th>Lab Name</th>&nbsp;
+      <th>Lab Slot</th>&nbsp;
+      <th>Number of Bookings</th>&nbsp;
+      <th>Student Number</th>&nbsp;
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bookings of booking">
+      <td><span>{{bookings.Booking_ID}}</span></td>&nbsp;
+      <td><span>{{bookings.Lab_Name}}</span></td>&nbsp;
+      <td><span>{{bookings.Lab_Slot}}</span></td>&nbsp;
+      <td><span>{{bookings.Num_Bookings}}</span></td>&nbsp;
+      <td><span>{{bookings.Stud_ID}}</span></td>&nbsp;
+      <td><span></span></td>&nbsp;
+      
+    </tr>
+    </tbody>
+  </table>
+<br>
+<div id ="footer">
+  <footer>
+    <a class="contact" href="">contact Us</a><br><br>
+    <a class="about" href="">About</a>
+          <div class="footer-widget social-widget">
+              <h4>Follow Us</h4>
+              <ul class="social-icons">
+                  <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
+                  <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
+                  <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
+              </ul>
+          </div>
+           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/LBS-front/src/assets/images/SACoronavirus.png"></a>
+  </footer>
+</div> 

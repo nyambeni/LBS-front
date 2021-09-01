@@ -4,6 +4,9 @@
 <h2 style="text-align:center">Registration</h2>
     <br>
     <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+      <input type="radio" [(ngModel)]="answer" value="student" name="student" required>Student 
+      <input type="radio" [(ngModel)]="answer" value="lecturer" name="student" required>Lecturer
+      <br><br>
         <label for="name">Name</label><br>
        <input type="text" name="name" ngModel placeholder="Name" required><br><br>
        <label for="surname">Surname</label><br>
@@ -25,3 +28,20 @@
 
 
 
+<br>
+
+<div id ="footer">
+  <footer>
+    <a class="contact" href="">contact Us</a><br><br>
+    <a class="about" href="">About</a>
+          <div class="footer-widget social-widget">
+              <h4>Follow Us</h4>
+              <ul class="social-icons">
+                  <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
+                  <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
+                  <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
+              </ul>
+          </div>
+           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/LBS-front/src/assets/images/SACoronavirus.png"></a>
+  </footer>
+</div> 
