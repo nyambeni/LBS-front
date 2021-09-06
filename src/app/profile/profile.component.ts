@@ -40,6 +40,12 @@ export class ProfileComponent implements OnInit {
   getDetails(){
     this.student = JSON.parse(this.tittle);
   }
+  onClick()
+  {
+    
+    localStorage.removeItem("token");
+    this.router.navigate(['/index']);
+  }
  
   onSubmit(data){
 
@@ -57,7 +63,7 @@ export class ProfileComponent implements OnInit {
           this.http.post('http://localhost:3000/updatePassword',data,{responseType:'text'})
           .subscribe((result) =>{
 
-            if (result.length > 0) {
+            if (result =="password successfully updated") {
 
               localStorage.setItem("token",result)
 

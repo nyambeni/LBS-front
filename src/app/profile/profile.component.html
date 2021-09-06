@@ -1,16 +1,17 @@
-
+<header>
+  <h1>PROFILE</h1>
+</header>
 <nav>
   <a target="target" routerLink="/home" routerLinkActive="active">Home</a>&nbsp;&nbsp;|
   <a target="target" routerLink="/lab-booking" routerLinkActive="active">Lab Booking</a>&nbsp;&nbsp;|
-  <a target="target" routerLink="/login" routerLinkActive="active">Logout</a>&nbsp;&nbsp;
+  <a target="target" routerLink="/booking-details" routerLinkActive="active">Booking Details</a>&nbsp;&nbsp;
+  <button type="button" (click)="onClick()">Logout</button>
 </nav>
 <br><br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
   
   <br><br>
-    <div *ngFor="let details of student">
-      
-      <h3>
+  <h3  *ngFor="let details of student" for="stuNumber" name="stuNumber" ngModel="{{this.details.stud_no}}">{{this.details.stud_no}}
         Name:
         {{this.details.stu_name}}&nbsp;&nbsp;  <br><br>
 
@@ -21,19 +22,19 @@
         {{this.details.stud_no}}&nbsp;&nbsp;<br><br>
         
         Email:
-        
         {{this.details.email}}&nbsp;&nbsp;<br><br>
-      </h3>
-    </div>
+
+    </h3>
+    
 
   <label for="password">Old Password</label><br>
-  <input type="password" name="password" ><br><br>
+  <input type="password"  ngModel name="password" required><br><br>
 
   <label for="password">Change Password</label><br>
-  <input type="password" name="password" ><br><br>
+  <input type="password" ngModel name="newPassword" required ><br><br>
 
   <label for="confirm">Confirm new Password</label><br>
-  <input type="password" name="confirm" >
+  <input type="password" ngModel name="confirmPassword" required>
 
   <br><br><br>
   <button type="submit">Update</button>
