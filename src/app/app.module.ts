@@ -18,6 +18,7 @@ import { LabBookingComponent } from './lab-booking/lab-booking.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ViewUserComponent } from './view-user/view-user.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
     ProfileComponent,
     BookingDetailsComponent,
     ViewUserComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
       {path: 'lab-booking', component: LabBookingComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'booking-details', component: BookingDetailsComponent},
+      {path: 'admin', component: AdminComponent},
       {path: '', redirectTo: '/index', pathMatch: 'full'},
     ]),
   ],

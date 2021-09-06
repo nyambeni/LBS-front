@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       cancelButtonText: 'NO'
     }).then((result) => {
       if (result.isConfirmed) {
-        if(this.answer == "student")
+        if(this.answer == "Student")
         {
           console.log(this.answer);
           //Retrieve Information from the database
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
           console.warn(data);
         }
         
-        if(this.answer == "lecturer")
+        if(this.answer == "Lecturer")
         {
           console.log(this.answer);
           //Retrieve Information from the database
@@ -107,6 +107,42 @@ export class LoginComponent implements OnInit {
             
           })
           console.warn(data);
+        }
+        if(this.answer == "Admin")
+        {
+          console.log(this.answer);
+
+          //Retrieve fronm database
+          this.http.post('http://localhost:3000/adminLogin',data, {responseType: 'text'})
+          .subscribe((result)=>
+          {
+            console.warn("result",result)
+            if(result== 'incorrect username or password')
+            {
+              Swal.fire
+              (result,
+                '',
+                'warning'
+              )
+              
+              
+              
+            } else {
+              //store using token
+              localStorage.setItem("token", result)
+
+            Swal.fire(
+              'Successfully Logged In!',
+              '',
+              'success'
+            )
+            //Navigate to the Admin  page
+              this.router.navigate(['/admin']);
+
+            }
+          })
+          console.warn(data);
+
         }
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {

@@ -4,8 +4,9 @@
 <h2 style="text-align:center">Login</h2>
 <br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
-    <input type="radio" [(ngModel)]="answer" value="student" name="student" required>Student 
-    <input type="radio" [(ngModel)]="answer" value="lecturer" name="student" required>Lecturer
+    <input type="radio" [(ngModel)]="answer" value="Student" name="student" required>Student 
+    <input type="radio" [(ngModel)]="answer" value="Lecturer" name="student" required>Lecturer
+    <input type="radio" [(ngModel)]="answer" value="Admin" name="student" required>Admin
     <br><br>
     <label for="username">Username</label><br>
     <input type="text" name="stuNumber" ngModel placeholder="Username" required><br><br>
