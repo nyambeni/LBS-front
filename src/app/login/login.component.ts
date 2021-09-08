@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       cancelButtonText: 'NO'
     }).then((result) => {
       if (result.isConfirmed) {
+        //Check if Selected Radio button is for student
         if(this.answer == "Student")
         {
           console.log(this.answer);
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
           this.http.post('http://localhost:3000/login',data, {responseType: 'text'})
           .subscribe((result)=>{
           console.warn("result",result)
-          if(result == "incorrect username or password")
+          if(result == "incorrect username or password" || result == "Please enter values")
             {
               Swal.fire(
                 result,
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
           })
           console.warn(data);
         }
-        
+        //Check if Selected Radio button is for Lecturer
         if(this.answer == "Lecturer")
         {
           console.log(this.answer);
@@ -81,7 +82,7 @@ export class LoginComponent implements OnInit {
           this.http.post('http://localhost:3000/lec_login',data, {responseType: 'text'})
           .subscribe((result)=>{
           console.warn("result",result)
-          if(result == 'incorrect username or password')
+          if(result == "incorrect username or password" || result == "Please enter values")
           {
             Swal.fire(
               result,
@@ -100,6 +101,7 @@ export class LoginComponent implements OnInit {
               'success'
             )
             //Navigate to the Home page
+            
             this.router.navigate(['/home']);
 
              
@@ -107,7 +109,8 @@ export class LoginComponent implements OnInit {
             
           })
           console.warn(data);
-        }
+        }  
+        //Check if Selected Radio button is for Admin
         if(this.answer == "Admin")
         {
           console.log(this.answer);
@@ -117,18 +120,17 @@ export class LoginComponent implements OnInit {
           .subscribe((result)=>
           {
             console.warn("result",result)
-            if(result== 'incorrect username or password')
+            if(result == "incorrect username or password" || result == "Please enter values")
             {
               Swal.fire
               (result,
                 '',
                 'warning'
               )
-              
+              //Navigate to the Admin  page
               
               
             } else {
-              //store using token
               localStorage.setItem("token", result)
 
             Swal.fire(
@@ -136,7 +138,7 @@ export class LoginComponent implements OnInit {
               '',
               'success'
             )
-            //Navigate to the Admin  page
+
               this.router.navigate(['/admin']);
 
             }
@@ -144,10 +146,20 @@ export class LoginComponent implements OnInit {
           console.warn(data);
 
         }
+
+        //check if the radio button is clicked
+        if(this.answer == "")
+        {
+          Swal.fire(
+            'Please select Radio Button',
+            '',
+            'error'
+          )
+        }
       
       } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire(
-            'incorrect Login name or Password',
+            'Cancelled!!',
             '',
             'error'
           )
@@ -155,5 +167,6 @@ export class LoginComponent implements OnInit {
     })
   
   }
+
 
 }

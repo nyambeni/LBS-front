@@ -10,15 +10,17 @@ import { __values } from 'tslib';
 import { FormsModule } from '@angular/forms';
 
 //storing info receiced from the console
+//
 export class Labs {
   constructor(
     public Lab_Name: string,
     public Lab_Slot: string,
+
    
   ) {
   }
 }
-
+//export class for students for storing data from localstorage
 export class students {
   constructor(
     public stud_no: string,
@@ -66,15 +68,6 @@ export class LabBookingComponent implements OnInit {
    this.selected
   }
 
-  //Update Function
-  ngOnUpdate(): void {
-    this.getlab();
-    this.tittle = localStorage.getItem("token")
-    this.getStudents();
-   this.selected
-    
-  }
-
 
   //get function that receive the results from the database
   getlab(){
@@ -107,7 +100,7 @@ export class LabBookingComponent implements OnInit {
     
     //sweet Alerts pop up messages
     Swal.fire({
-      title: 'Register New User?',
+      title: 'Book A Lab?',
       text: '',
       icon: 'warning',
       showCancelButton: true,
@@ -171,6 +164,14 @@ export class LabBookingComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
-}
+  }
+
+  //On click function for logout
+  onClick()
+  {
+    
+    localStorage.removeItem("token");
+    this.router.navigate(['/index']);
+  }
 
 }

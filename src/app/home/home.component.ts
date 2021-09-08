@@ -59,7 +59,8 @@ export class HomeComponent implements OnInit {
   getLecturers(){
     this.lecture = JSON.parse(this.tittle);
   }
-
+  
+//On click function for logout
   onClick()
   {
     

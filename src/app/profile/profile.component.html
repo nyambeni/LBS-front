@@ -2,16 +2,18 @@
   <h1>PROFILE</h1>
 </header>
 <nav>
-  <a target="target" routerLink="/home" routerLinkActive="active">Home</a>&nbsp;&nbsp;|
-  <a target="target" routerLink="/lab-booking" routerLinkActive="active">Lab Booking</a>&nbsp;&nbsp;|
-  <a target="target" routerLink="/booking-details" routerLinkActive="active">Booking Details</a>&nbsp;&nbsp;
+  <a target="target" routerLink="/home" routerLinkActive="active">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a target="target" routerLink="/lab-booking" routerLinkActive="active">Lab Booking</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a target="target" routerLink="/booking-details" routerLinkActive="active">Booking Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <button type="button" (click)="onClick()">Logout</button>
 </nav>
 <br><br>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
   
   <br><br>
-  <h3  *ngFor="let details of student" for="stuNumber" name="stuNumber" ngModel="{{this.details.stud_no}}">{{this.details.stud_no}}
+    <div *ngFor="let details of student">
+      
+    <h3  *ngFor="let details of student" for="stuNumber" name="stuNumber" ngModel="{{this.details.stud_no}}">{{this.details.stud_no}}
         Name:
         {{this.details.stu_name}}&nbsp;&nbsp;  <br><br>
 
@@ -22,19 +24,19 @@
         {{this.details.stud_no}}&nbsp;&nbsp;<br><br>
         
         Email:
+        
         {{this.details.email}}&nbsp;&nbsp;<br><br>
-
-    </h3>
-    
+      </h3>
+    </div>
 
   <label for="password">Old Password</label><br>
-  <input type="password"  ngModel name="password" required><br><br>
+  <input type="password" ngModel name="password" ><br><br>
 
   <label for="password">Change Password</label><br>
-  <input type="password" ngModel name="newPassword" required ><br><br>
+  <input type="password" ngModel name="newPassword" ><br><br>
 
   <label for="confirm">Confirm new Password</label><br>
-  <input type="password" ngModel name="confirmPassword" required>
+  <input type="password" ngModel name="confirmPassword" >
 
   <br><br><br>
   <button type="submit">Update</button>
@@ -54,6 +56,6 @@
                   <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
               </ul>
           </div>
-           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/LBS-front/src/assets/images/SACoronavirus.png"></a>
+           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/assets/images/SACoronavirus.png"></a>
   </footer>
 </div> 

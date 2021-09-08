@@ -27,6 +27,8 @@ export class ProfileComponent implements OnInit {
 
   //variable to store the title 
   tittle: string;
+  //variable to store the student Number
+ studentNo;
   constructor(private http:HttpClient,private router: Router){ }
   
    
@@ -34,6 +36,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.tittle = localStorage.getItem("token");
     this.getDetails();
+    this.studentNo = this.student[0].stud_no;
+    console.log(this.studentNo);
   }
 
  //get function that receive the results from the database
@@ -51,7 +55,8 @@ export class ProfileComponent implements OnInit {
 
       //sweet alerts pop up messages
       Swal.fire({
-        text:'Change Password? ',
+        title:'Change Password?',
+        text:' ',
         icon:'warning',
         showCancelButton: true,
         confirmButtonText: 'YES',
@@ -69,7 +74,9 @@ export class ProfileComponent implements OnInit {
 
               Swal.fire(
 
-                'Successully changed password','','success'
+                'Successully changed password',
+                '',
+                'success'
 
               )
               //Navigate to the profile page
@@ -78,7 +85,9 @@ export class ProfileComponent implements OnInit {
 
               Swal.fire(
 
-                result,'','warning'
+                result,
+                '',
+                'warning'
               )
             }
           })
@@ -94,5 +103,3 @@ export class ProfileComponent implements OnInit {
 }
   
 }
-   
-

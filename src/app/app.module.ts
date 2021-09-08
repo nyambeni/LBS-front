@@ -47,7 +47,7 @@ import { AdminComponent } from './admin/admin.component';
       {path: 'lab-booking', component: LabBookingComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'booking-details', component: BookingDetailsComponent},
-      {path: 'admin', component: AdminComponent},
+      {path: 'view-user', component: ViewUserComponent},
       {path: '', redirectTo: '/index', pathMatch: 'full'},
     ]),
   ],
