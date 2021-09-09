@@ -1,7 +1,11 @@
 <header>
     <h1>Publish schedule</h1>
 </header>
-
+<nav>
+    <a target="target" routerLink="/admin" routerLinkActive="active">Admin</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a target="target" routerLink="/view-user" routerLinkActive="active">View Users</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <button type="button" (click)="onClick()">Logout</button>
+  </nav>
 
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
     <input type="radio" [(ngModel)]="answer" value="student" name="student" required>Student 

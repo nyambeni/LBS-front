@@ -139,6 +139,11 @@ export class ScheduleComponent implements OnInit {
           }
         })
       }
-  
+      onClick()
+      {
+        
+        localStorage.removeItem("token");
+        this.router.navigate(['/index']);
+      }
 
 }
