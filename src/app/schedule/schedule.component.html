@@ -10,23 +10,23 @@
 
     <label class="slots">Choose Slot</label><br>
     <select   [ngModelOptions]="{standalone: true}" [(ngModel)] = "selectedSlot" >
-        <option *ngFor="let slots of slot"  name="slot"  [(ngModel)] = "selectedSlot"><p>{{slots.slotA}}</p></option>
-        <option *ngFor="let slots of slot"  name="slot"  [(ngModel)] = "selectedSlot"><p>{{slots.slotB}}</p></option>
-        <option *ngFor="let slots of slot"  name="slot"  [(ngModel)] = "selectedSlot"><p>{{slots.slotC}}</p></option>
-        <option *ngFor="let slots of slot"  name="slot"  [(ngModel)] = "selectedSlot"><p>{{slots.slotD}}</p></option>
-    </select><br>
+        <option ngDefaultControl value ="A" name="slot" [(ngModel)] = "selectedSlot">Slot A</option>
+        <option ngDefaultControl value ="B" name="slot" [(ngModel)] = "selectedSlot">Slot B</option>
+        <option ngDefaultControl value ="C" name="slot" [(ngModel)] = "selectedSlot">Slot C</option>
+        <option ngDefaultControl value ="D" name="slot" [(ngModel)] = "selectedSlot">Slot D</option>
+    </select><br><br>
     <label class="labs">Lab Name</label><br>
-    <select   [ngModelOptions]="{standalone: true}" [(ngModel)] = "selectedLab" >
-        <option *ngFor="let labs of lab"  name="lab"  [(ngModel)] = "selectedLab"><p>{{labs.Lab120}}</p></option> 
-        <option *ngFor="let labs of lab"  name="lab"  [(ngModel)] = "selectedLab"><p>{{labs.Lab130}}</p></option>
-        <option *ngFor="let labs of lab"  name="lab"  [(ngModel)] = "selectedLab"><p>{{labs.Lab140}}</p></option>
-        <option *ngFor="let labs of lab"  name="lab"  [(ngModel)] = "selectedLab"><p>{{labs.Lab150}}</p></option>
-     </select><br>
+    <select [ngModelOptions]="{standalone: true}" [(ngModel)] = "selectedLab">
+        <option ngDefaultControl value ="10-120" name="labName" [(ngModel)] = "selectedLab">Lab 120</option> 
+        <option ngDefaultControl value="10-138" name="labName" [(ngModel)] = "selectedLab">Lab 138</option>
+        <option ngDefaultControl value="10-140" name="labName" [(ngModel)] = "selectedLab">Lab 140</option>
+        <option ngDefaultControl value="10-240" name="labName" [(ngModel)] = "selectedLab">Lab 240</option>
+     </select><br><br>
      <label class="date">Choose Date</label><br>
-     <input [formControl]="dateStringControl" type="date" id="date-string" />
+     <input type="date" name ="date" ngModel /><br><br>
     <label for="Capacity">Capacity</label><br>
     <input type="text" name="capacity" ngModel placeholder="Capacity" required><br>
-     <br><br><button type="submit">Login</button>
+     <br><br><button type="submit">Publish</button>
 </form>
 <br>
 

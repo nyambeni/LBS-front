@@ -49,7 +49,10 @@
  
  </div>
 
-    <br><br><button type="submit">Book</button>&nbsp;&nbsp;&nbsp;<button type="button" (Click)="onClickCancel">Cancel Booking</button>
+    <br><br>
+    <label></label>
+    <button type="submit" [(ngModel)] = "book" value="book" name="book">Book</button><br><br>
+    <button type="submit" [(ngModel)] = "cancel" value="cancel" name="cancel">Cancel Booking</button>
     <br><br>
   </form>
   <br>

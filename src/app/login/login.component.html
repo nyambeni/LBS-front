@@ -9,10 +9,10 @@
     <input type="radio" [(ngModel)]="answer" value="Admin" name="Admin" required>Admin
     <br><br>
     <label for="username">Username</label><br>
-    <input type="text" name="stuNumber" ngModel placeholder="Username" required><br><br>
+    <input type="text" name="stuNumber" placeholder="Username" ngModel required><br><br>
     <label for="password">Password</label><br>
     <input type="password" name="password" ngModel placeholder="Password" required><br>
-     <br><br><button type="submit">Login</button>
+     <br><br><button type="submit" ngModel>Login</button>
      <br><br>
      <a target="target" routerLink="/register" routerLinkActive="active">Register</a>&nbsp;&nbsp;
      <a target="target" routerLink="/forgot-password" routerLinkActive="active">Forgot password</a>

@@ -9,6 +9,8 @@ import { LabBookingComponent } from './lab-booking/lab-booking.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ViewUserComponent } from './view-user/view-user.component';
+import { AdminComponent } from './admin/admin.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'booking-details', component: BookingDetailsComponent},
   {path: 'view-user', component: ViewUserComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'schedule', component: ScheduleComponent}
 
 ];
 
@@ -30,4 +34,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, RegisterComponent,
    ForgotPasswordComponent, HomeComponent, IndexComponent, LabBookingComponent, ProfileComponent,
-  BookingDetailsComponent, ViewUserComponent] 
+  BookingDetailsComponent, ViewUserComponent, AdminComponent, ScheduleComponent] 
