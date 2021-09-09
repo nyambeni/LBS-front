@@ -1,3 +1,4 @@
+
 <app-admin></app-admin>
 <!--<nav>
     <a target="target" routerLink="/admin" routerLinkActive="active">Admin</a>&nbsp;&nbsp;|
@@ -5,43 +6,84 @@
     <a target="target" routerLink="/schedule" routerLinkActive="active">schedule</a>&nbsp;&nbsp;
     
   </nav>-->
-  <h1>User details</h1>
 
-  <!--table to display all registered users-->
-  <table class="table">
-    <thead>
-      <th>Student Number</th>&nbsp;
-      <th>Name</th>&nbsp;
-      <th>Surname</th>&nbsp;
-      <th>Email</th>&nbsp;
-    
-    </thead>
-    
-     <tbody>
-      <!-- <tr *ngFor="">
-                    
-        <td><span>{{users.student_number}}</span></td>&nbsp;
-        <td><span>{{users.name}}</span></td>&nbsp;
-        <td><span>{{users.surname}}</span></td>&nbsp;
-        <td><span>{{users.email</span></td>&nbsp;
-      </tr> sss-->
-      
-    </tbody>
-  </table>
+<!--<header>
+  <h1>
+    Users
+  </h1>
+</header>
+<nav>
+  <a target="target" routerLink="/admin" routerLinkActive="active">Admin</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a target="target" routerLink="/schedule" routerLinkActive="active">schedule</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <button type="button" (click)="onClick()">Logout</button>
+</nav>
 <br>
+<br>-->
+Registered Students
+
+
+<!--table to display all registered students-->
+<table class="table">
+  <thead>
+    <th>Student id</th>&nbsp;
+    <th>Name</th>&nbsp;
+    <th>Surname</th>&nbsp;
+    <th>Email</th>&nbsp;
+    <th></th>
+  
+  </thead>
+  
+   <tbody>
+    <tr *ngFor="let students of student">
+                  
+      <td><span>{{students.stud_no}}</span></td>&nbsp;
+      <td><span>{{students.stu_name}}</span></td>&nbsp;
+      <td><span>{{students.stud_surname}}</span></td>&nbsp;
+      <td><span>{{students.email}}</span></td>&nbsp;
+      <td><button class="btn btn-sm btn-danger" type="button" (click)="onDelete()">
+        <i class="fa fa-remove"></i>Delete</button></td>
+     
+    </tr>
+    
+  </tbody>
+</table>
+
+<br><br>
+Registered Lecturer
+<br>
+<table class="table2">
+  <thead>
+    <th>Lecturer id</th>&nbsp;
+    <th>Name</th>&nbsp;
+    <th>Email</th>&nbsp;
+  
+  </thead>
+  
+   <tbody>
+    <tr *ngFor="let lecturers of lecturer">
+      <td><span>{{lecturers.lec_id}}</span></td>&nbsp;
+      <td><span>{{lecturers.lec_name}}</span></td>&nbsp;
+      <td><span>{{lecturers.lec_email}}</span></td>&nbsp;
+      <td><button class="btn btn-sm btn-danger" type="button" (click)="onDelete()">
+        <i class="fa fa-remove"></i>Delete</button></td>
+    </tr>
+
+   </tbody>
+</table>
+<br><br>
 
 <div id ="footer">
-  <footer>
-    <a class="contact" href="">contact Us</a><br><br>
-    <a class="about" href="">About</a>
-          <div class="footer-widget social-widget">
-              <h4>Follow Us</h4>
-              <ul class="social-icons">
-                  <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
-                  <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
-                  <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
-              </ul>
-          </div>
-           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/assets/images/SACoronavirus.png"></a>
-  </footer>
+<footer>
+  <a class="contact" href="">contact Us</a><br><br>
+  <a class="about" href="">About</a>
+        <div class="footer-widget social-widget">
+            <h4>Follow Us</h4>
+            <ul class="social-icons">
+                <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
+                <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
+                <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
+            </ul>
+        </div>
+         <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="500" height="80" src="/assets/images/SACoronavirus.png"></a>
+</footer>
 </div> 

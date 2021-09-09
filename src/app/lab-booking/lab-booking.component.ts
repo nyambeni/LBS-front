@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { GroupedObservable } from 'rxjs';
 import { __values } from 'tslib';
 import { FormsModule } from '@angular/forms';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 //storing info receiced from the console
 //
@@ -60,6 +61,10 @@ export class LabBookingComponent implements OnInit {
 
   selected:string = ""
 
+
+  //variable to store the selected radio button
+  book = 'book';
+  cancel = 'cancel';
   //On initialize function
   ngOnInit(): void {
     this.getlab();
@@ -94,7 +99,7 @@ export class LabBookingComponent implements OnInit {
 
 
   //onclick function that cancel booking
-  onClickCancel(data){
+ /* onClickCancel(data){
     //sweet Alerts pop up messages
     Swal.fire({
       title: 'Cancel this booking?',
@@ -143,13 +148,13 @@ export class LabBookingComponent implements OnInit {
         )
       }
     })
-  }
+  }*/
  
   //On submit button
   onSubmit(data)
   {
     
-    //sweet Alerts pop up messages
+        //sweet Alerts pop up messages
     Swal.fire({
       title: 'Book A Lab?',
       text: '',
@@ -197,8 +202,6 @@ export class LabBookingComponent implements OnInit {
         )
       }
     })
-  
-   
 
   }
 

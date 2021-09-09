@@ -57,9 +57,10 @@ getDetails(){
     this.stuNumber = this.detail[0].stud_no;
     console.log(this.stuNumber);
     //
-    this.http.post('http://localhost:3000/bookingStatus',this.stuNumber,{responseType: 'text'})
-          .subscribe((result)=>
-          {
+    this.http.get<any>('http://localhost:3000/bookingStatus').subscribe(
+      response => {
+        this.booking = response;
+        console.log(response);
           });
 }
 

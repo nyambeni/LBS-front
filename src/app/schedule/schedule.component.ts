@@ -8,10 +8,10 @@ import Swal from 'sweetalert2';
 //labs class
 export class Labs {
   constructor(
-    public Lab120: string,
-    public Lab130: string,
-    public Lab140: string,
-    public Lab150: string,
+    public Lab120: string = "Lab 120",
+    public Lab130: string = "Lab 130",
+    public Lab140: string = "Lab 140",
+    public Lab150: string = "Lab 150",
    
   ) {
   }
@@ -80,7 +80,7 @@ export class ScheduleComponent implements OnInit {
                 .subscribe((result)=>{
                 console.warn("result",result)
                 //On submit validation
-                if(result == 'user registered sucessfully')
+                if(result == 'lab is now available for booking on this date')
                 {
                   Swal.fire(
                     result,
@@ -108,7 +108,7 @@ export class ScheduleComponent implements OnInit {
                   .subscribe((result)=>{
                   console.warn("result",result)
                   //On submit validation
-                  if(result == 'user registered sucessfully')
+                  if(result == 'lab is now available for booking on this date')
                   {
                     Swal.fire(
                       result,
@@ -139,6 +139,11 @@ export class ScheduleComponent implements OnInit {
           }
         })
       }
-  
+      onClick()
+      {
+        
+        localStorage.removeItem("token");
+        this.router.navigate(['/index']);
+      }
 
 }
