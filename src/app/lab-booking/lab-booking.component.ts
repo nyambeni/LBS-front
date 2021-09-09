@@ -93,6 +93,57 @@ export class LabBookingComponent implements OnInit {
   }
 
 
+  //onclick function that cancel booking
+  onClickCancel(data){
+    //sweet Alerts pop up messages
+    Swal.fire({
+      title: 'Cancel this booking?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'YES',
+      cancelButtonText: 'NO'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // TODO: Use EventEmitter with form value
+        //console.warn(this.ngForm.value);
+        
+
+        //Add the User to the Database
+        this.http.post('http://localhost:3000/cancelBooking',data, {responseType:'text'})
+        .subscribe((result)=>{
+            console.warn("result",result)
+            //On submit validation
+            if(result == 'booking has been cancelled')
+            {
+              Swal.fire(
+                result,
+                '',
+                'success'
+              )
+              //Navigate to the Login page
+              
+            }else{
+              Swal.fire(
+                result,
+                '',
+                'warning'
+              )
+            }
+
+            
+        })
+        console.warn(data);
+        
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Could Not cancel booking',
+          'error'
+        )
+      }
+    })
+  }
  
   //On submit button
   onSubmit(data)
@@ -151,16 +202,6 @@ export class LabBookingComponent implements OnInit {
 
   }
 
-
-  onClickUpdate()
-  {
-     
-    
-  }
-  onClickCancel()
-  {
-
-  }
 
   refresh(): void {
     window.location.reload();

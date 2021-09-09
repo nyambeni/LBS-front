@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { AdminComponent } from './admin/admin.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
     BookingDetailsComponent,
     ViewUserComponent,
     AdminComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
