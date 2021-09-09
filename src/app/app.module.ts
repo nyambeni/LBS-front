@@ -50,6 +50,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
       {path: 'profile', component: ProfileComponent},
       {path: 'booking-details', component: BookingDetailsComponent},
       {path: 'view-user', component: ViewUserComponent},
+      {path: 'admin',component:  AdminComponent},
+      {path: 'schedule', component: ScheduleComponent },
       {path: '', redirectTo: '/index', pathMatch: 'full'},
     ]),
   ],
