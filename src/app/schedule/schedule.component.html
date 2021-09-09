@@ -10,17 +10,17 @@
 
     <label class="slots">Choose Slot</label><br>
     <select   [ngModelOptions]="{standalone: true}" [(ngModel)] = "selectedSlot" >
-        <option ngDefaultControl value ="A" name="slot" [(ngModel)] = "selectedSlot">Slot A</option>
-        <option ngDefaultControl value ="B" name="slot" [(ngModel)] = "selectedSlot">Slot B</option>
-        <option ngDefaultControl value ="C" name="slot" [(ngModel)] = "selectedSlot">Slot C</option>
-        <option ngDefaultControl value ="D" name="slot" [(ngModel)] = "selectedSlot">Slot D</option>
+        <option value ="A" name="slot" [(ngModel)] = "selectedSlot">Slot A</option>
+        <option value ="B" name="slot" [(ngModel)] = "selectedSlot">Slot B</option>
+        <option value ="C" name="slot" [(ngModel)] = "selectedSlot">Slot C</option>
+        <option value ="D" name="slot" [(ngModel)] = "selectedSlot">Slot D</option>
     </select><br><br>
     <label class="labs">Lab Name</label><br>
     <select [ngModelOptions]="{standalone: true}" [(ngModel)] = "selectedLab">
-        <option ngDefaultControl value ="10-120" name="labName" [(ngModel)] = "selectedLab">Lab 120</option> 
-        <option ngDefaultControl value="10-138" name="labName" [(ngModel)] = "selectedLab">Lab 138</option>
-        <option ngDefaultControl value="10-140" name="labName" [(ngModel)] = "selectedLab">Lab 140</option>
-        <option ngDefaultControl value="10-240" name="labName" [(ngModel)] = "selectedLab">Lab 240</option>
+        <option value ="10-120" name="labName" [(ngModel)] = "selectedLab">Lab 120</option> 
+        <option value="10-138" name="labName" [(ngModel)] = "selectedLab">Lab 138</option>
+        <option value="10-140" name="labName" [(ngModel)] = "selectedLab">Lab 140</option>
+        <option value="10-240" name="labName" [(ngModel)] = "selectedLab">Lab 240</option>
      </select><br><br>
      <label class="date">Choose Date</label><br>
      <input type="date" name ="date" ngModel /><br><br>
