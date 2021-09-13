@@ -32,6 +32,11 @@
     </tr>
     </tbody>
   </table>
+  <br>
+  <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">    
+      <h3  *ngFor="let details of detail" for="stuNumber" name="stuNumber" ngModel="{{this.details.stud_no}}"></h3>
+        <button type="submit">View</button>
+  </form>
 <br>
 <div id ="footer">
   <footer>

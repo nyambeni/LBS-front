@@ -46,8 +46,8 @@ export class ForgotPasswordComponent implements OnInit {
             }else{
               
               Swal.fire(
-                'Done!',
                 'Your password has been sent!',
+                '',
                 'success'
               )
               //Navigate to the Login page

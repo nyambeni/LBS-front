@@ -37,6 +37,8 @@
    
   <label for="name" >Student Number </label><br>
   <input *ngFor="let students of student" type="text" name="stuNumber" ngModel ="{{students.stud_no}}"  required><br><br>
+  <label for="email" >Email </label><br>
+  <input *ngFor="let students of student" type="email" name="email" ngModel ="{{students.email}}"  required><br><br>
 
   
   <div class = "container">

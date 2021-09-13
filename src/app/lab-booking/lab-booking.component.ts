@@ -27,7 +27,7 @@ export class students {
     public stud_no: string,
     public stu_name: string,
     public stud_surname: string,
-
+    public email: string,
     
   ) {
   }

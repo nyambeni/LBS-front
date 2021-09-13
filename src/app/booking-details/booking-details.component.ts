@@ -43,10 +43,10 @@ export class BookingDetailsComponent implements OnInit {
  //array to store the data from the localstorage
  detail: Details[];
  //variable to store the student Number
- stuNumber;
+ stuNumber: number;
 
   ngOnInit(): void {
-    this.tittle = localStorage.getItem("token")
+    this.tittle = localStorage.getItem("token");
     this.getDetails();
   }
 
@@ -54,16 +54,33 @@ export class BookingDetailsComponent implements OnInit {
 //and connects to booking API
 getDetails(){
   this.detail = JSON.parse(this.tittle);
-    this.stuNumber = this.detail[0].stud_no;
+    this.stuNumber = JSON.parse(this.detail[0].stud_no);
     console.log(this.stuNumber);
-    //
+    /*
     this.http.get<any>('http://localhost:3000/bookingStatus').subscribe(
       response => {
         this.booking = response;
         console.log(response);
+          });*/
+
+          //Retrieve information from the database
+          this.http.post('http://localhost:3000/bookingStatus',this.stuNumber,{responseType:'text'})
+          .subscribe((result) =>{
+          //this.booking = result;
+            console.log(result);
           });
 }
 
+//on submit function that calls the booking detail API
+onSubmit(data){
+  //Retrieve information from the database
+  this.http.post('http://localhost:3000/bookingStatus',data,{responseType:'text'})
+  .subscribe((result) =>{
+    console.warn("Results", result);
+    //this.booking = result;
+  });
+  console.warn(data);
+}
 
 
 //On click function for logout
