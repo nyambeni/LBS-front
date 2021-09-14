@@ -22,7 +22,15 @@
     </thead>
     <tbody>
     <tr *ngFor="let labs of lab">
-      <td><span>1</span></td>&nbsp;
+      <td><span id="num">1
+        <script>
+          function number(){
+            var num = document.getElementById('num').value;
+            num = num + 1;
+          }
+         number();
+        </script>
+      </span></td>&nbsp;
       <td><span>{{labs.Lab_Name}}</span></td>&nbsp;
       <td><span>{{labs.Lab_Slot}}</span></td>&nbsp;
       <td><span>Available</span></td>&nbsp;

@@ -36,11 +36,11 @@ export class ForgotPasswordComponent implements OnInit {
         this.http.post('http://localhost:3000/forgotPassword',data,{responseType: 'text'})
         .subscribe((result)=>{
             console.warn("result",result)
-            if(result == 'student number does not exist')
+            if(result == 'student number does not exist please create an account or contact admin' || result == 'please enter student number' )
             {
               Swal.fire(
-                'Done!',
                 result,
+                '',
                 'warning'
               )
             }else{

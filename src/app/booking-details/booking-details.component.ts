@@ -12,6 +12,7 @@ export class bookings {
     public Lab_Slot: string,
     public Num_Bookings: string,
     public Stud_ID: string,
+    public date: string,
    
   ) {
   }
@@ -56,19 +57,7 @@ getDetails(){
   this.detail = JSON.parse(this.tittle);
     this.stuNumber = JSON.parse(this.detail[0].stud_no);
     console.log(this.stuNumber);
-    /*
-    this.http.get<any>('http://localhost:3000/bookingStatus').subscribe(
-      response => {
-        this.booking = response;
-        console.log(response);
-          });*/
-
-          //Retrieve information from the database
-          this.http.post('http://localhost:3000/bookingStatus',this.stuNumber,{responseType:'text'})
-          .subscribe((result) =>{
-          //this.booking = result;
-            console.log(result);
-          });
+     
 }
 
 //on submit function that calls the booking detail API
@@ -76,6 +65,7 @@ onSubmit(data){
   //Retrieve information from the database
   this.http.post('http://localhost:3000/bookingStatus',data,{responseType:'text'})
   .subscribe((result) =>{
+    this.booking = JSON.parse(result);
     console.warn("Results", result);
     //this.booking = result;
   });
