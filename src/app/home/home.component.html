@@ -1,152 +1,64 @@
+
+
 <header>
-    <h1>Welcome to Lab Booking system</h1>
-    
-        <div *ngFor="let details of student">
-          <h3>{{this.details.stu_name}}&nbsp;&nbsp;{{this.details.stud_surname}}</h3> 
-        </div>
-        <div *ngFor="let lecturers of lecture">
-          <h3>{{this.lecturers.lec_id}}&nbsp;&nbsp;{{this.lecturers.lec_name}}</h3> 
-        </div>
-        <br>
-        
-</header>
-<nav>
+  <h1>Welcome to Lab Booking system</h1>
+  <nav>
     <a target="target" routerLink="/lab-booking" routerLinkActive="active">Lab Booking</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a target="target" routerLink="/booking-details" routerLinkActive="active">Booking Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a target="target" routerLink="/booking-details" routerLinkActive="active">Booking
+      Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a target="target" routerLink="/profile" routerLinkActive="active">Profile</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <button type="button" (click)="onClick()">Logout</button>
-</nav>
+  </nav>
+</header>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
 
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-</style>
-
-<div class="slideshow-container">
-
-    <div class="mySlides fade">
-    
-    <img class="mySlides fade" src="assets/images/TUT Gencor.jpg" style="width:100%">
-    <div class="text">TUT Gencor</div>
-    </div>
-
-    <div class="mySlides fade">
-    
-    <img src="assets/images/TUT Parking.jpg" style="width:100%">
-    <div class="text">TUT Parking</div>
-    </div>
-
-    <div class="mySlides fade">
-    
-    <img src="assets/images/lab1.JPG" style="width:100%">
-    <div class="text">Lab</div>
-    </div>
-
+<div *ngFor="let details of student">
+  <h3>{{this.details.stu_name}}&nbsp;&nbsp;{{this.details.stud_surname}}</h3>
+</div>
+<div *ngFor="let lecturers of lecture">
+  <h3>{{this.lecturers.lec_id}}&nbsp;&nbsp;{{this.lecturers.lec_name}}</h3>
 </div>
 <br>
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
+<div class="slider" id="img-slider">
+ <ng-image-slider [images]="imageObject" [infinite]="true" [autoSlide]="3" [showArrow]="false" [imagePopup]="false"
+    [imageSize]="{height: 350, width:500}" #nav></ng-image-slider>
 </div>
 
-<script>
-var slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 4 seconds
-}
-</script>
 
-<br>
-
-<div id ="footer">
-  <footer>
-    <a class="contact" href="">contact Us</a><br><br>
-    <a class="about" href="">About</a>
-          <div class="footer-widget social-widget">
-              <h4>Follow Us</h4>
-              <ul class="social-icons">
-                  <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
-                  <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
-                  <li><a class="youtube" href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
-              </ul>
-          </div>
-           <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="400" height="80" src="/assets/images/SACoronavirus.png"></a>
-  </footer>
-</div> 
-
+  <main>
+    <article>
+      <p>
+        The Lab Booking system is an online booking facility
+        that facilitates lab administrators and lecturers to
+        book for computer labs, it check conflicts and allows
+        simultaneous bookings, updates of bookings, changes and
+        deletion of bookings. The system allows the lab administrators
+        to add labs under their names, edit lab details, delete labs.
+        They may also add lab administrators. The system allows calendar
+        view of all the labs, it gives daily, weekly and monthly views
+        of the calendar.
+      </p>
+    </article>
+  </main>
+  <div id="footer">
+    <footer>
+      <nav>
+        <a class="contact" href="">contact Us</a><br><br>
+        <a class="about" href="">About</a>
+        <div class="footer-widget social-widget">
+          <h4>Follow Us</h4>
+          <ul class="social-icons">
+            <li><a class="facebook" href="https://www.facebook.com/TUTCommunications">Facebook</a></li>
+            <li><a class="twitter" href="https://twitter.com/official_tut">Twitter</a></li>
+            <li><a class="youtube"
+                href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber">Youtube</a></li>
+          </ul>
+        </div>
+        <a href="https://sacoronavirus.co.za/"><img alt="SACoronavirus Resource and News Portal" width="400" height="80"
+            src="/assets/images/SACoronavirus.png"></a>
+      </nav>
+    </footer>
+  </div>

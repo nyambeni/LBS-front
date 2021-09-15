@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 //import service class
 import {IssueService} from './issue.service';
@@ -39,6 +40,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgImageSliderModule,
     FormsModule,
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},

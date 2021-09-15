@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
-import { Router, NavigationExtras} from '@angular/router';
-import { HttpClient } from '@angular/common/http'; 
+import { Router, NavigationExtras } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 
 //storing info receiced from the console
@@ -33,7 +33,7 @@ export class Lecturers {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http:HttpClient,private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
   //variable to store the title
   tittle: string;
   //delete: string;
@@ -44,27 +44,47 @@ export class HomeComponent implements OnInit {
   //Lecturer array
   lecture: Lecturers[];
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {
+
     this.tittle = localStorage.getItem("token");
     this.getDetails();
     this.getLecturers();
   }
 
   //get function that receive the student results from the database
-  getDetails(){
+  getDetails() {
     this.student = JSON.parse(this.tittle);
   }
   //get function that receive the lecturer results from the database
-  getLecturers(){
+  getLecturers() {
     this.lecture = JSON.parse(this.tittle);
   }
-  
-//On click function for logout
-  onClick()
-  {
-    
+
+  //On click function for logout
+  onClick() {
+
     localStorage.removeItem("token");
     this.router.navigate(['/index']);
   }
+
+  imageObject: Array<object> = [{
+    image: '/assets/images/TUT Gencor.jpg',
+    thumbImage: '/assets/images/TUT Gencor.jpg',
+
+  },
+
+  {
+    image: 'assets/images/TUT Parking.jpg',
+    thumbImage: 'assets/images/TUT Parking.jpg',
+  },
+  {
+    image: 'assets/images/lab1.JPG',
+    thumbImage:'assets/images/lab1.JPG',
+    text:'',
+  },
+  {
+    image: 'assets/images/lab2.JPG',
+    thumbImage:'assets/images/lab2.JPG',
+  }
+  ]
 }
