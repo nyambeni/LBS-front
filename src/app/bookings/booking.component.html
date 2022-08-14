@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="container" *ngIf="emptyAppointment">
+        <div class="alert alert-danger">
+            Please Fill in all details
+        </div>
+    </div>
+
+    <div class="container" *ngIf="successAppointment">
+            <div class="alert alert-success">
+                You have successFully created an Appointment
+            </div>
+        </div>
+
+    <div class="container">
+        <a routerLink="/user-appointment/{{userId}}" mat-raised-button color=accent >View Appointments</a>
+    </div>
+
+    <div class="formWrapper">
+        <h4>Enter Your Details Below (EYDB)</h4>
+       <p>{{totalTakenSeats}}</p> 
+        <form>
+            <label for="studentNo">Student No.</label>
+            <mat-form-field>
+                <input ngModel required #studentNo="ngModel" matInput type="text" name="studentNo"
+                    placeholder="Enter StudentNo" >
+            </mat-form-field>
+
+            <h4>Select Lab</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Pick-a-Lab
+                </mat-label>
+                <mat-select [(value)] = "selectedLab">
+                    <mat-option *ngFor="let lab of labs" [value] ="lab.value" name="labId" >
+                        {{lab.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <h4>Select Slot</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Slots</mat-label>
+                <mat-select [(value)] = "selectedSlot">
+                    <mat-option *ngFor="let slot of slots" [value] = "slot.value"  name="slot" >
+                        {{slot.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <button  mat-raised-button color=primary >Make
+                Appointment</button>
+                <br />
+                <button  mat-raised-button color=accent >Cancel</button>
+        </form>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
